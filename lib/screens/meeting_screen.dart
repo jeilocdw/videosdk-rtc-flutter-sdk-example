@@ -90,9 +90,8 @@ class _MeetingScreenState extends State<MeetingScreen> {
 
               //terminate after 10 minutes
               Future.delayed(const Duration(minutes: 10), () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Demo app limits meeting to 10 Minutes'))
-                );
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text('Demo app limits meeting to 10 Minutes')));
                 _meeting.leave();
               });
             },
@@ -221,7 +220,7 @@ class _MeetingScreenState extends State<MeetingScreen> {
                             if (isLiveStreamOn) {
                               _meeting.stopLivestream();
                             } else {
-                              if (liveStreamOptions.length > 0) {
+                              if (liveStreamOptions.isNotEmpty) {
                                 _meeting.startLivestream(liveStreamOptions);
                               } else {
                                 toastMsg(
